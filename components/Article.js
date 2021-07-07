@@ -89,11 +89,55 @@ const data = [
   }
 ];
 
+function articleMaker(article) {
+  const art = document.createElement('div');
+  //const artDiv = document.querySelector('div.articles');
+  art.classList.add('article');
+
+  const artH = document.createElement('h2');
+  artH.textContent = article.title;
+
+  const artDate = document.createElement('p')
+  artDate.classList.add('date');
+  artDate.textContent = article.date;
+
+  const parOne = document.createElement('p')
+  parOne.textContent = article.firstParagraph;
+
+  const parTwo = document.createElement('p')
+  parTwo.textContent = article.secondParagraph;
+
+  const parThree = document.createElement('p')
+  parThree.textContent = article.thirdParagraph;
+
+  const expandButton = document.createElement('span')
+  expandButton.textContent = '+';
+  expandButton.classList.add('expandButton');
+  console.log(expandButton)
+  art.appendChild(artH);
+  art.appendChild(artDate);
+  art.appendChild(parOne);
+  art.appendChild(parTwo);
+  art.appendChild(parThree);
+  art.appendChild(expandButton);
+
+  expandButton.addEventListener('click', () => {
+    art.classList.toggle('article-open');
+  })
+  return art;
+  
+}
+
+data.forEach( e => {
+  const article = articleMaker(e);
+  document.querySelector('.articles').append(article);
+})
+
+
 /*
   Step 1: Write a component called 'articleMaker' to create an article.
   Your component is a function that takes an article object as its only argument,
   and returns a DOM node looking like the one below:
-
   <div class="article">
     <h2>{title of the article}</h2>
     <p class="date">{date of the article}</p>
