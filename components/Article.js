@@ -91,7 +91,7 @@ const data = [
 
 function articleMaker(article) {
   const art = document.createElement('div');
-  //const artDiv = document.querySelector('div.articles');
+
   art.classList.add('article');
 
   const artH = document.createElement('h2');
@@ -113,7 +113,6 @@ function articleMaker(article) {
   const expandButton = document.createElement('span')
   expandButton.textContent = '+';
   expandButton.classList.add('expandButton');
-  console.log(expandButton)
   art.appendChild(artH);
   art.appendChild(artDate);
   art.appendChild(parOne);
